@@ -8,7 +8,7 @@ RxJava is used for reactive programming. In reactive programming, the consumer r
 **ReactiveX** is a technology or project which integrate Reactive Programm using the combination of Observer Pattern,Functional and Iterator Pattern.**RxJava** is the Java implementation of Reactive Programming. It's nothing but user will react on the data we get as output.   
     
 #### Main Building Blogs Reactive Programming  
-* **Observables** : This is nothing but the data Emitors i.e Observervables is the Sourse of data which emit data when **Suscriber** Start listening. Observervables will terminate either by emitting Data Successfully or terminate by showing an Error. Observervables never terminate operation without doing Anything. If we click one Button, it will show Output data successfully or it will show Error.  
+* **Observables** : This is nothing but the data Emitors i.e Observervables is the Sourse of data which emit data when **Observer** Start listening. Observervables will terminate either by emitting Data Successfully or terminate by showing an Error. Observervables never terminate operation without doing Anything. If we click one Button, it will show Output data successfully or it will show Error.  
 * **Observer (or Suscribers in version 1)** : An Observervable have many number of **Observer**. If any data change in the Observable, it will react in the **onNext, onCOmplete or OnError methods**.if the observable finishes its data flow with an error, the onError() method is called on each Observer.  
   
 #### What is the need of Reactive Programming ?  
@@ -18,7 +18,7 @@ Observeable.from(doNetworkOperation()).
 SuscribeOn(Scheduler.io).
 
 
-RX = OBSERVABLE + OBSERVER + SCHEDULERS  
+**RX = OBSERVABLE + OBSERVER + SCHEDULERS**  
   
 **So at a very high level, RxJava is all about:**    
   
