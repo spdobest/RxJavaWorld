@@ -5,7 +5,14 @@ Ans : In Reactive Programming, user Reacts to the data or the output comes in. T
   
 RxJava is used for reactive programming. In reactive programming, the consumer reacts to the data as it comes in. Reactive programming allows for event changes to propagate to registered observers.  
 
-**ReactiveX** is a technology or project which integrate Reactive Programm using the combination of Observer Pattern,Functional and Iterator Pattern.**RxJava** is the Java implementation of Reactive Programming. It's nothing but user will react on the data we get as output.   
+**ReactiveX** is a technology or project which integrate Reactive Programm using the combination of Observer Pattern,Functional and Iterator Pattern.**RxJava** is the Java implementation of Reactive Programming. It's nothing but user will react on the data we get as output.  
+
+**KEY POINTS**  
+* Reactive programming is a specification for dealing with asynchronous streams of data  
+* Reactive provides tools for transforming and combining streams and for managing flow-control  
+* Marble diagrams provide an interactive canvas for visualizing reactive constructs  
+* Resembles Java Streams API but the resemblance is purely superficial  
+* Attach to hot streams to attenuate and process asynchronous data feeds  
     
 #### Main Building Blogs Reactive Programming  
 * **Observables** : This is nothing but the data Emitors i.e Observervables is the Sourse of data which emit data when **Observer** Start listening. Observervables will terminate either by emitting Data Successfully or terminate by showing an Error. Observervables never terminate operation without doing Anything. If we click one Button, it will show Output data successfully or it will show Error.  
