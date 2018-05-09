@@ -109,7 +109,10 @@ and much more.
   
     
   https://techbeacon.com/missing-rxjava-2-guide-supercharge-your-android-development  
-  
+**Github Examples**  
+https://github.com/amitshekhariitbhu/RxJava2-Android-Samples  
+https://github.com/ravidsrk/Rxjava2-Android-Playground  
+ 
  There are primarily three types of events that your observer can receive:  
   
 **onNext(T) :** will be invoked when the source observable emits a particular item (of type T). It will get called multiple times if the source observable has got multiple items to emit.
