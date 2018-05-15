@@ -71,6 +71,16 @@ Observable<Long> observable = Observable.interval(1, TimeUnit.SECONDS)
 The empty() operator creates an Observable that emits no items but terminates normally, which can be useful when you need to quickly create an Observable for testing purposes.   
   
 Observable<String> observable = Observable.empty();  
+  
+**Observable.just()** — Creates an observable around any data type and emits the given item.  
+  
+**Observable.fromArray()** — Creates an observable that emits all the items of the given array one by one.  
+  
+**Observable.interval()** — Creates an observable that emits a sequence of integers in a given interval of time.  
+  
+**Observable.empty()** — Creates an observable that emits nothing and completes successfully.  
+  
+**Observable.error()** — Creates an observable that emits nothing and throws an error.  
       
 #### RxJava 2 Examples present in this sample project  
   
