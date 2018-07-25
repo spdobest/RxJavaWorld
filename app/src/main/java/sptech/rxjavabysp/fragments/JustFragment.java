@@ -34,26 +34,21 @@ import io.reactivex.observers.DisposableObserver;
 import io.reactivex.schedulers.Schedulers;
 import sptech.rxjavabysp.R;
 
+
+/**
+ * JUST() - is a function in RX java to make any object observable
+ * this will emmit the original and emit the on
+ */
 public class JustFragment extends Fragment {
 
     private static final String TAG = "JustFragment";
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
 
     final CompositeDisposable disposables = new CompositeDisposable();
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public static JustFragment newInstance(String param1, String param2) {
+    public static JustFragment newInstance() {
         JustFragment fragment = new JustFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
     }
@@ -72,10 +67,6 @@ public class JustFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
 
 
         Observable<String> myObservable = Observable.create(
