@@ -9,6 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".rxJava2Examples.CompositeObservableActivity"></activity>
+        <activity android:name=".rxJava2Examples.DisposableObserverActivity" />
+        <activity android:name=".rxJava2Examples.DisposableActivity" />
+        <activity android:name=".rxJava2Examples.SimpleObserverActivity" />
+        <activity android:name=".rxJava2Examples.RxJava2Activity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

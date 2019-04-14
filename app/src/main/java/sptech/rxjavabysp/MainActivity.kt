@@ -1,11 +1,10 @@
 package sptech.rxjavabysp
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.view.View
 import kotlinx.android.synthetic.main.activity_main.*
 import sptech.rxjavabysp.fragments.FilterFragment
-import sptech.rxjavabysp.fragments.JustFragment
 import sptech.rxjavabysp.fragments.MapFragment
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
@@ -36,10 +35,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
             }
             R.id.buttonJust -> {
-                supportFragmentManager.beginTransaction()
-                        .add(R.id.container,
-                                JustFragment.newInstance("", ""),
-                                "JustFragmet").commit()
+                /* supportFragmentManager.beginTransaction()
+                         .add(R.id.container,
+                                 JustFragment.newInstance("", ""),
+                                 "JustFragmet").commit()*/
             }
 
             R.id.buttonMap -> {
