@@ -87,9 +87,52 @@ Main observer methods(there are other methods too)
 * **Observer (or Suscribers in version 1)** : Instance of Observer Interface, they consume data emited byt the observables.An Observervable have many number of **Observer's**. If any data change in the Observable, it will react in the **onNext, onCOmplete or OnError methods**.if the observable finishes its data flow with an error, the onError() method is called on each Observer.  
   
 Observable emit data if at lest one observer is suscribed for data, if no Observer is suscribed , then Observale will not emit data.  
+  
+## Disposable ##  
+How memory leaks happen, most of the time ?  
+In mobile applications we cannot control the app life-cycle. Let’s say in an app you created you have written code to run a network call to a REST API and update the view accordingly. If a user initiate a view but decide to go back before the completion of the network call, What will happen? The activity or fragment will be destroyed. But the observer subscription will be there. When observer trying to update the User Interface, in this scenario as the view already destroyed,  it can cause a memory leak. And your app will freeze or crash as a result.  
+This is what we can simply do (If only one observer there)  
+  
+1. Declare a Disposable.  
+private Disposable disposable;  
+  
+2. Observer's onSubscribe method has a parameter of type Disposable.Observer invokes this method passing a disposable value which we can use to terminate the subscription.  From there we can assign value to the Disposable we declared.  
+  
+3. Override the onDestroy method of your activity or fragment. (code->override methods)  
+  
+This method will always be invoked when the avtivity or fragment destroyed.(when user move to another view).   
+So we can add code to dispose the disposable there.In the onDestroy method jiust write
+disposable.dispose();
+ 
+## What are Disposable Observers?  ##  
+DisposableObserver class implements both Observer and Disposable interfaces. DisposableObserver is much efficient than Observer if you have more than one observers in the activity or fragment.  
+  
+Observer implementation had four overridden methods. onSubscribe() method was mainly there to receive the disposable.  
+  
+In the onDestroy() method activity , u can write, disposableObserver.dispose().  
+
+
    
 ## Schedulers ##  
 To perform operations of Observable on different threads(multi-threading) .Between Observer and observable there is scheduler. It is used to handle multithreading. It decides whether the code will run in background thread or main thread. THere are mainly 2 Schedulers used in Rx Java, 1. Schedulers.io and ANdroidSchedulers.mainThread()  
+  
+**Scheduler.io()** 
+Can have limitless threadpool.   
+can have non CPU intesive task  
+For Task related to database operation, network communication and file system interaction.   
+  
+**Scheduler.newThread()**   
+This scheduler creates a new thread for each unit of work scheduled.  
+  
+**Scheduler.single()**   
+This scheduler has a single thread execution tasks one after another following the given order.  
+  
+**Scheduler.trampoline()**     
+THis scheduler executes tasks following first in first out basics.  
+  
+**Scheduler.from(Executor executor)**  
+This creates and returns costume scheduler backed by a specific executor.  
+
   
 ## Operators ##  
 To modify data  
