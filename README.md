@@ -1,12 +1,60 @@
 # Sp-RxJava
+  
+ ### DATA STREAMS EVERYWHERE  
+• If you consider a mobile application, you can create a data stream out of anything  
+• Click events, network calls, data storage, variable changes and even errors can be used to generate data streams  
+• Modules run on their own threads, executing multiple code blocks at the same time.    
+  
+
 
 #### What is Reactive Programming ?  
 Ans : In Reactive Programming, user Reacts to the data or the output comes in. This is nothing but the Async Programming or reactive Programming.  
   
+In reactive programming the consumer code blocks reacts to the data as it comes in.  
+  
 RxJava is used for reactive programming. In reactive programming, the consumer reacts to the data as it comes in. Reactive programming allows for event changes to propagate to registered observers.  
 
-**ReactiveX** is a technology or project which integrate Reactive Programm using the combination of Observer Pattern,Functional and Iterator Pattern.**RxJava** is the Java implementation of Reactive Programming. It's nothing but user will react on the data we get as output.  
-
+**ReactiveX** is a technology or project which integrate Reactive Programm using the combination of Observer Pattern,Functional and Iterator Pattern.  
+**RxJava** is the Java implementation of Reactive Programming. It's nothing but user will react on the data we get as output.  
+  
+ReactiveX is a short word for reactive extensions.  
+• ReactiveX is a project which provides implementations for this reactive programming concept for different programming languages.  
+• ReactiveX is a combination of the best ideas from the Observer pattern, the Iterator pattern, and functional programming.    
+    
+     
+*** What is the difference between RxJava and RxAndroid?***       
+•RxAndroid does not replace rxjava.  
+•RxAndroid is just a layer on top of RxJava which provides android specific support.           
+  
+  
+### Why and When should we use RxJava?  What are the benefits? ###  
+  
+ Interfaces and methods provided by Reactive Extensions (Rx) provide a way to developers solve problems rapidly. We can save a lot of time we usually spend for writing complex algorithms and bug fixing.  
+  
+As it provides a common structure we can write easy to understand and easy to maintain code. RxJava support us to write clean and simpler code.  
+  
+RxJava allow a different approach of programming than imperative(way we usually code in Android) approach. It is reactive based, where codes are not activate until it knows it’s end mean.  
+  
+RxJava makes multi-threading super easy. Using imperative approach, moving a piece of code to background thread is hard work. However in RxJava, we could easily define what thread each part of the chain would be in.  
+  
+It provide extensibility to our code. RxJava code can be extended with custom operators.  
+  
+RxJava is composable, Rx operators can be combined to produce more complicated operations.  
+  
+Rx operators can transform one type of data to another, reducing, mapping or expanding streams as needed.  
+  
+UI events like mouse move , button click, domain events like property changed, collection updated can be easily use to generate and handle data streams with RxJava.  
+  
+Error handling becomes much easier with RxJava. You don’t need to worry about adding try catch blocks everywhere.  
+  
+In mobile applications, we cannot control the app lifecycle. Sometimes we need to terminate current processes rapidly to response to a app lifecycle change. RxJava provide simple yet profound mechanism to terminate background processes rapidly.  
+  
+Particularly, callBack occurs when performing several asynchronous operations in a series where the next action depends on the results of the previous operation, making the code untidy and hard to manage. RxJava renders a better way to terminate the urgency to build layers of callbacks.  
+  
+The RxJava library was designed to give a control over a wide range of data, simultaneously on the events in the real-time. This allows us to build highly responsive mobile applications.  
+  
+Some people say Ios apps has better performance than Android apps. That's not true if we use RxJava. we can provide same or even better performance to native Android applications with RxJava.  
+  
 **KEY POINTS**  
 * Reactive programming is a specification for dealing with asynchronous streams of data  
 * Reactive provides tools for transforming and combining streams and for managing flow-control  
@@ -15,9 +63,36 @@ RxJava is used for reactive programming. In reactive programming, the consumer r
 * Attach to hot streams to attenuate and process asynchronous data feeds  
     
 #### Main Building Blogs Reactive Programming  
-* **Observables** : This is nothing but the data Emitors i.e Observervables is the Sourse of data which emit data when **Observer** Start listening. Observervables will terminate either by emitting Data Successfully or terminate by showing an Error. Observervables never terminate operation without doing Anything. If we click one Button, it will show Output data successfully or it will show Error.  
-* **Observer (or Suscribers in version 1)** : An Observervable have many number of **Observer**. If any data change in the Observable, it will react in the **onNext, onCOmplete or OnError methods**.if the observable finishes its data flow with an error, the onError() method is called on each Observer.  
+* **Observables** : This is nothing but the data Emitors   
+Instances of Observable class.  
+Observables observe data streams and emit them to subscribed Observers.   
   
+### Observer ###   
+Start listening. Observervables will terminate either by emitting Data Successfully or terminate by showing an Error. Observervables never terminate operation without doing Anything. If we click one Button, it will show Output data successfully or it will show Error.  
+    
+Instances of observer interface .  
+Observers consume data emitted by the Observables.     
+One Observable can have many observers. An observable emit data, if there is at least one observer subscribed for the data. If there is no subscription observable will not emit data.  
+Main observer methods(there are other methods too)  
+  
+**onNext()** :- Each time an Observable emits data it  calls to Observer's  onNext() method  passing that data.  
+  
+**onError()** :- If any error occur Observable calls to Observer's onError() method.  
+  
+**onComplete()** :- Observable invokes Observer's onComplete() method, when the data emission is over.  
+    
+* **Observer (or Suscribers in version 1)** : Instance of Observer Interface, they consume data emited byt the observables.An Observervable have many number of **Observer's**. If any data change in the Observable, it will react in the **onNext, onCOmplete or OnError methods**.if the observable finishes its data flow with an error, the onError() method is called on each Observer.  
+  
+Observable emit data if at lest one observer is suscribed for data, if no Observer is suscribed , then Observale will not emit data.  
+   
+## Schedulers ##  
+To perform operations of Observable on different threads(multi-threading) .Between Observer and observable there is scheduler. It is used to handle multithreading. It decides whether the code will run in background thread or main thread. THere are mainly 2 Schedulers used in Rx Java, 1. Schedulers.io and ANdroidSchedulers.mainThread()  
+  
+## Operators ##  
+To modify data  
+its is used to convert the data streams before it recieved by the observers. They allow to change by different operators. There are around 70 operators.  
+  
+
 * **Disposable** : It is an interface having two methods **dispose() and isDisposed()**  
   
 public interface Disposable {  
