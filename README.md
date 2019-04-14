@@ -63,9 +63,12 @@ Some people say Ios apps has better performance than Android apps. That's not tr
 * Attach to hot streams to attenuate and process asynchronous data feeds  
     
 #### Main Building Blogs Reactive Programming  
+  
 * **Observables** : This is nothing but the data Emitors   
 Instances of Observable class.  
 Observables observe data streams and emit them to subscribed Observers.   
+Rx Java provides 5 base classes to create observable classes.
+
   
 ### Observer ###   
 Start listening. Observervables will terminate either by emitting Data Successfully or terminate by showing an Error. Observervables never terminate operation without doing Anything. If we click one Button, it will show Output data successfully or it will show Error.  
@@ -91,8 +94,125 @@ To perform operations of Observable on different threads(multi-threading) .Betwe
 ## Operators ##  
 To modify data  
 its is used to convert the data streams before it recieved by the observers. They allow to change by different operators. There are around 70 operators.  
-  
 
+Observable — Operator — Observer
+An Observable is like speaker which emit value. It does some work and emits some values.
+
+An Operator is like translator which translate/modify a data from one form to another form.
+
+An Observer gets those values.
+
+### Types of Observables ##  
+
+**1. Observable - **
+**2. Flowable -**  
+Flowable comes to picture when there is a case that the Observable is emitting huge numbers of values which can’t be consumed by the Observer.  
+In this case, the Observable needs to skip some values on the basis of some strategy else it will throw an exception.    
+The Flowable Observable handles the exception with a strategy.  
+  
+The strategy is called BackPressureStrategy and the exception is called MissingBackPressureException.  
+  
+Creating a Flowable Observable  
+  
+Similar to normal Observable, you can create Flowable using Flowable.create().  
+  
+Observer for Flowable Observable  
+  
+The Observer for Flowable is exactly same as normal Observer.  
+  
+**3. Single -**  
+Single is used when the Observable has to emit only one value like a response from a network call.  
+  
+How to create Single Observable  
+new SingleObserver<String>() {  
+            @Override  
+            public void onSubscribe(Disposable d) {  
+                Log.d(TAG, " onSubscribe : " + d.isDisposed());  
+            }  
+  
+            @Override  
+            public void onSuccess(String value) {  
+                textView.append(" onNext : value : " + value);  
+                textView.append(AppConstant.LINE_SEPARATOR);  
+                Log.d(TAG, " onNext value : " + value);  
+            }  
+  
+            @Override  
+            public void onError(Throwable e) {  
+                textView.append(" onError : " + e.getMessage());  
+                textView.append(AppConstant.LINE_SEPARATOR);  
+                Log.d(TAG, " onError : " + e.getMessage());  
+            }  
+        };  
+          
+**4. Maybe -**
+  
+Maybe is used when the Observable has to emit a value or no value.  
+
+**5. Completable -**  
+Completable is used when the Observable has to do some task without emitting a value.  
+  
+How to create COmpletable Observable class   
+new CompletableObserver() {  
+            @Override  
+            public void onSubscribe(Disposable d) {  
+                Log.d(TAG, " onSubscribe : " + d.isDisposed());   
+            }  
+  
+            @Override  
+            public void onComplete() {  
+                textView.append(" onComplete");   
+                textView.append(AppConstant.LINE_SEPARATOR);  
+                Log.d(TAG, " onComplete");  
+            }  
+  
+            @Override   
+            public void onError(Throwable e) {  
+                textView.append(" onError : " + e.getMessage());  
+                textView.append(AppConstant.LINE_SEPARATOR);  
+                Log.d(TAG, " onError : " + e.getMessage());  
+            }  
+        };  
+  
+## following are the different types of Observers in RxJava: ##  
+
+1. Observer
+2. SingleObserver
+3. MaybeObserver
+4. CompletableObserver
+
+## SingleObserver Example ##  
+/*  
+     * simple example using SingleObserver  
+     */  
+    private void doSomeWork() {  
+        Single.just("Amit")  
+                .subscribe(getSingleObserver());  
+    }  
+  
+    private SingleObserver<String> getSingleObserver() {  
+        return new SingleObserver<String>() {  
+            @Override  
+            public void onSubscribe(Disposable d) {  
+                Log.d(TAG, " onSubscribe : " + d.isDisposed());  
+            }  
+  
+            @Override  
+            public void onSuccess(String value) {  
+                textView.append(" onNext : value : " + value);  
+                textView.append(AppConstant.LINE_SEPARATOR);  
+                Log.d(TAG, " onNext value : " + value);  
+            }  
+  
+            @Override   
+            public void onError(Throwable e) {    
+                textView.append(" onError : " + e.getMessage());  
+                textView.append(AppConstant.LINE_SEPARATOR);  
+                Log.d(TAG, " onError : " + e.getMessage());  
+            }  
+        };  
+    }  
+  
 * **Disposable** : It is an interface having two methods **dispose() and isDisposed()**  
   
 public interface Disposable {  
