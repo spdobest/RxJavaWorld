@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".rxJava2Examples.CompositeObservableActivity"></activity>
+        <activity android:name=".rxJava2Examples.FromOperatorActivity"></activity>
+        <activity android:name=".rxJava2Examples.JustOperatorActivity" />
+        <activity android:name=".rxJava2Examples.CompositeObservableActivity" />
         <activity android:name=".rxJava2Examples.DisposableObserverActivity" />
         <activity android:name=".rxJava2Examples.DisposableActivity" />
         <activity android:name=".rxJava2Examples.SimpleObserverActivity" />
