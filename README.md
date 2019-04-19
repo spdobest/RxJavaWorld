@@ -588,5 +588,8 @@ There are several schedulers available in RxJava, including:
    Schedulers are where(thread) the work should be done.  
   
 7. What is meant by "subscriber" in RxJava ?  
-    Where the response will be sent after work has been completed  .  
+    Where the response will be sent after work has been completed  .   
+8. What is Hot and Cold Observer ?  
+https://medium.com/@benlesh/hot-vs-cold-observables-f8094ed53339
+
   
