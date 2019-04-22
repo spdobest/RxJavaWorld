@@ -36,7 +36,7 @@ import sptech.rxjavabysp.R;
 
 
 /**
- * JUST() - is a function in RX java to make any object observable
+ * JUST() - is ConcatActivity function in RX java to make any object observable
  * this will emmit the original and emit the on
  */
 public class JustFragment extends Fragment {
@@ -79,7 +79,7 @@ public class JustFragment extends Fragment {
                 }
         );
 
-        // TODO Create a Subscriber to consume the data
+        // TODO Create ConcatActivity Subscriber to consume the data
         Subscriber<String> mySubscriber = new Subscriber<String>() {
             @Override
             public void onSubscribe(Subscription s) {
@@ -207,7 +207,7 @@ public class JustFragment extends Fragment {
 
     void onRunSchedulerExampleButtonClicked() {
         disposables.add(sampleObservable()
-                // Run on a background thread
+                // Run on ConcatActivity background thread
                 .subscribeOn(Schedulers.io())
                 // Be notified on the main thread
                 .observeOn(AndroidSchedulers.mainThread())

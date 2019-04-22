@@ -9,8 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".rxJava2Examples.FromOperatorActivity"></activity>
-        <activity android:name=".rxJava2Examples.JustOperatorActivity" />
+
         <activity android:name=".rxJava2Examples.CompositeObservableActivity" />
         <activity android:name=".rxJava2Examples.DisposableObserverActivity" />
         <activity android:name=".rxJava2Examples.DisposableActivity" />
@@ -23,6 +22,21 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+       <!-- OPERATORS-->
+        <activity android:name=".rxJava2Examples.operators.FromOperatorActivity" />
+        <activity android:name=".rxJava2Examples.operators.JustOperatorActivity" />
+        <activity android:name=".rxJava2Examples.operators.BufferActivity" />
+        <activity android:name=".rxJava2Examples.operators.ConcatActivity" />
+        <activity android:name=".rxJava2Examples.operators.EmptyActivity" />
+        <activity android:name=".rxJava2Examples.operators.FIlterActivity" />
+        <activity android:name=".rxJava2Examples.operators.FlatmapActivity" />
+        <activity android:name=".rxJava2Examples.operators.IntervalActivity" />
+        <activity android:name=".rxJava2Examples.operators.MapActivity" />
+        <activity android:name=".rxJava2Examples.operators.RangeActivity" />
+        <activity android:name=".rxJava2Examples.operators.SkipActivity" />
+        <activity android:name=".rxJava2Examples.operators.SkipLastActivity" />
+
     </application>
 
 </manifest>

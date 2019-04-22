@@ -75,7 +75,7 @@ public class RetrofitRxJavaFragment extends Fragment {
     }
 
     private void displayGeonames(@NonNull final List<Geoname> geonames) {
-        // Cheap way to display a list of Strings - I was too lazy to implement a RecyclerView
+        // Cheap way to display ConcatActivity list of Strings - I was too lazy to implement ConcatActivity RecyclerView
         final StringBuilder output = new StringBuilder();
         for (final Geoname geoname : geonames) {
             output.append(geoname.name).append("\n");
