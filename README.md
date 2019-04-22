@@ -1,5 +1,8 @@
 # Sp-RxJava
   
+  https://github.com/ReactiveX/RxJava/wiki/Alphabetical-List-of-Observable-Operators
+  
+  
  ### DATA STREAMS EVERYWHERE  
 • If you consider a mobile application, you can create a data stream out of anything  
 • Click events, network calls, data storage, variable changes and even errors can be used to generate data streams  
@@ -324,18 +327,24 @@ Giving the Observer tasks to perform whenever it receives an emission from its a
 **1. Observable.just()**  
 You can use the .just() operator to convert any object into an Observable. The result Observable will then emit the original object and complete.  
   
+http://reactivex.io/documentation/operators/just.html  
+  
 For example, here we're creating an Observable that'll emit a single string to all its Observers:  
 Observable<String> observable = Observable.just("Hello World!");  
     
 **2. Observable.from()**  
   
-The .from() operator allows you to convert a collection of objects into an observable stream. You can convert an array into an Observable using Observable.fromArray, a Callable into an Observable using Observable.fromCallable, and an Iterable into an Observable using Observable.fromIterable.
-
+The .from() operator allows you to convert a collection of objects into an observable stream. You can convert an array into an Observable using Observable.fromArray, a Callable into an Observable using Observable.fromCallable, and an Iterable into an Observable using Observable.fromIterable.  
+  
+http://reactivex.io/documentation/operators/from.html  
+  
 **3. Observable.range()**  
   
 You can use the .range() operator to emit a range of sequential integers. The first integer you provide is the initial value, and the second is the number of integers you want to emit. For example:
   
 Observable<Integer> observable = Observable.range(0, 5); 
+  
+http://reactivex.io/documentation/operators/range.html     
     
 **4.Observable.interval()**  
   
@@ -389,14 +398,33 @@ and much more.
 **Operators :**  
   
 **Map** -> transform the items emitted by an Observable by applying a function to each item  
+  
+  http://reactivex.io/documentation/operators/map.html  
+  
 **Zip** -> combine the emissions of multiple Observables together via a specified function and emit single items for each combination based on the results of this function  
 **Filter** -> emit only those items from an Observable that pass a predicate test  
 **FlatMap** -> transform the items emitted by an Observable into Observables, then flatten the emissions from those into a single Observable  
+  
+  http://reactivex.io/documentation/operators/flatmap.html  
+  
 **Take** -> emit only the first n items emitted by an Observable  
 **Reduce** -> apply a function to each item emitted by an Observable, sequentially, and emit the final value  
 **Skip** -> suppress the first n items emitted by an Observable  
+  
+http://reactivex.io/documentation/operators/skip.html  
+  
+**SkipLast**  
+  
+http://reactivex.io/documentation/operators/skiplast.html  
+    
 **Buffer** -> periodically gather items emitted by an Observable into bundles and emit these bundles rather than emitting the items one at a time  
+  
+  http://reactivex.io/documentation/operators/buffer.html  
+  
 **Concat** -> emit the emissions from two or more Observables without interleaving them  
+  
+http://reactivex.io/documentation/operators/concat.html    
+  
 **Replay** -> ensure that all observers see the same sequence of emitted items, even if they subscribe after the Observable has begun emitting items  
 **Merge** -> combine multiple Observables into one by merging their emissions  
 **SwitchMap** -> ransform the items emitted by an Observable into Observables, and mirror those items emitted by the most-recently transformed Observable   
