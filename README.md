@@ -148,8 +148,6 @@ An Operator is like translator which translate/modify a data from one form to an
 
 An Observer gets those values.
 
-### Types of Observables ##  
-
 **1. Observable - **
 **2. Flowable -**  
 Flowable comes to picture when there is a case that the Observable is emitting huge numbers of values which can’t be consumed by the Observer.  
@@ -322,7 +320,12 @@ Creating an Observer.
 Assigning the Observer to an Observable.  
 Giving the Observer tasks to perform whenever it receives an emission from its assigned Observable.  
   
-##### Rx Java methods used   
+### Types of Observables ##  
+  
+**Alphabetical List of Observable Operators**  
+https://github.com/ReactiveX/RxJava/wiki/Alphabetical-List-of-Observable-Operators  
+
+
 
 **1. Observable.just()**  
 You can use the .just() operator to convert any object into an Observable. The result Observable will then emit the original object and complete.  
@@ -367,33 +370,7 @@ Observable<String> observable = Observable.empty();
 **Observable.empty()** — Creates an observable that emits nothing and completes successfully.  
   
 **Observable.error()** — Creates an observable that emits nothing and throws an error.  
-      
-#### RxJava 2 Examples present in this sample project  
-  
-1. RxJava 2.0 Example using CompositeDisposable as CompositeSubscription and Subscription have been removed.  
-  
-2. RxJava 2 Example using Flowable.  
-  
-3. RxJava 2 Example using SingleObserver, CompletableObserver.  
-  
-4. RxJava 2 Example using RxJava2 operators such as map, zip, take, reduce, flatMap, filter, buffer, skip, merge, concat, replay, and much more:  
-  
-RxJava 2 Android Samples using Function as Func1 has been removed.  
-  
-RxJava 2 Android Samples using BiFunction as Func2 has been removed.  
-  
-And many others android examples  
-  
-Quick Look on few changes done in RxJava2 over RxJava1  
-  
-**RxJava1 -> RxJava2**   
-    
-onCompleted -> onComplete - without the trailing d  
-Func1 -> Function  
-Func2 -> BiFunction  
-CompositeSubscription -> CompositeDisposable  
-limit operator has been removed - Use take in RxJava2  
-and much more.  
+
 
 **Operators :**  
   
@@ -427,10 +404,37 @@ http://reactivex.io/documentation/operators/concat.html
   
 **Replay** -> ensure that all observers see the same sequence of emitted items, even if they subscribe after the Observable has begun emitting items  
 **Merge** -> combine multiple Observables into one by merging their emissions  
-**SwitchMap** -> ransform the items emitted by an Observable into Observables, and mirror those items emitted by the most-recently transformed Observable   
+**SwitchMap** -> ransform the items emitted by an Observable into Observables, and mirror those items emitted by the most-recently transformed Observable  
+      
+#### RxJava 2 Examples present in this sample project  
   
+1. RxJava 2.0 Example using CompositeDisposable as CompositeSubscription and Subscription have been removed.  
+  
+2. RxJava 2 Example using Flowable.  
+  
+3. RxJava 2 Example using SingleObserver, CompletableObserver.  
+  
+4. RxJava 2 Example using RxJava2 operators such as map, zip, take, reduce, flatMap, filter, buffer, skip, merge, concat, replay, and much more:  
+  
+RxJava 2 Android Samples using Function as Func1 has been removed.  
+  
+RxJava 2 Android Samples using BiFunction as Func2 has been removed.  
+  
+And many others android examples  
+  
+Quick Look on few changes done in RxJava2 over RxJava1  
+  
+**RxJava1 -> RxJava2**   
     
+onCompleted -> onComplete - without the trailing d  
+Func1 -> Function  
+Func2 -> BiFunction  
+CompositeSubscription -> CompositeDisposable  
+limit operator has been removed - Use take in RxJava2  
+and much more.  
+ 
   https://techbeacon.com/missing-rxjava-2-guide-supercharge-your-android-development  
+    
 **Github Examples**  
 https://github.com/amitshekhariitbhu/RxJava2-Android-Samples  
 https://github.com/ravidsrk/Rxjava2-Android-Playground  
