@@ -11,17 +11,16 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 import sptech.rxjavabysp.R;
 
-public class SkipActivity extends AppCompatActivity {
+public class DistinctActivity extends AppCompatActivity {
 
-
-    private static final String TAG = "SkipActivity";
+    private static final String TAG = "DistinctActivity";
 
     /**
-     * SKIP : You can ignore the first n items emitted by an Observable and attend only to
-     * those items that come after, by modifying the Observable with the Skip operator.
-     *
-     * @param savedInstanceState
+     * http://reactivex.io/documentation/operators/distinct.html
+     * <p>
+     * distinct : It will print the unique elements
      */
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +31,7 @@ public class SkipActivity extends AppCompatActivity {
 
         myObservable.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .skip(2) // it will skip the first 2
+                .distinct()
                 .subscribe(new Observer<Integer>() {
                     @Override
                     public void onSubscribe(Disposable d) {

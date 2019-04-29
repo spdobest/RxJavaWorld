@@ -9,35 +9,25 @@ import java.util.ArrayList;
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
-import io.reactivex.ObservableSource;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
-import io.reactivex.functions.Function;
 import io.reactivex.observers.DisposableObserver;
 import io.reactivex.schedulers.Schedulers;
 import sptech.rxjavabysp.R;
 import sptech.rxjavabysp.rxJava2Examples.operators.models.Student;
 
-public class ConcatActivity extends AppCompatActivity {
+public class CreateActivity extends AppCompatActivity {
 
     /**
-     * concat : emit the emission two or more observables without interleaving them
+     * CREATE :  create an observable from scratch by means of function
      *
-     * The Concat operator concatenates the output of multiple observables so that they act like single
-     * observable with all the items emitted
-     *
-     * http://reactivex.io/documentation/operators/concat.html
-     *
-     * The Concat operator concatenates the output of multiple Observables so that they act like a single Observable,
-     * with all of the items emitted by the first Observable being emitted before any of the items emitted by
-     * the second Observable (and so forth, if there are more than two).
-     *
-     * Its act same as flatmap but it maintain the order of items
-     *
+     * You pass this operator a function that accepts the observer as  parameter.
+     * Write this function so that it will act as observer by calling the observer's method
+     * onNext(), onCOmplete(),onError()
      */
 
 
-    private static final String TAG = "MapActivity";
+    private static final String TAG = "RangeActivity";
 
     private Observable<Student> myObservable;
     private DisposableObserver<Student> myObserver;
@@ -52,38 +42,19 @@ public class ConcatActivity extends AppCompatActivity {
         myObservable = Observable.create(new ObservableOnSubscribe<Student>() {
             @Override
             public void subscribe(ObservableEmitter<Student> emitter) throws Exception {
-                ArrayList<Student> list  = getStudents();
+                 ArrayList<Student> list  = getStudents();
 
-                for(Student st:list) {
-                    emitter.onNext(st);
-                }
+                 for(Student st:list) {
+                     emitter.onNext(st);
+                 }
 
-                emitter.onComplete();
+                 emitter.onComplete();
             }
         });
 
         compositeDisposable.add(myObservable
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                // student is input and object is output
-                .map(new Function<Student, Student>() {
-                    @Override
-                    public Student apply(Student student) throws Exception {
-                        student.setName(student.getName().toUpperCase());
-                        return student;
-                    }
-                })
-                .flatMap(new Function<Student, ObservableSource<Student >>() {
-                    @Override
-                    public ObservableSource<Student> apply(Student student) throws Exception {
-
-                        Student st12 = new Student("Student 1","student1@gmail.com","23","1000");
-                        Student st13 = new Student("Student 2","student2@gmail.com","23","1001");
-
-                        student.setEmail(student.getEmail().toUpperCase());
-                        return Observable.just(student,st12,st13);
-                    }
-                })
                 .subscribeWith(getObserver()));
 
     }
