@@ -617,6 +617,73 @@ There are also versions of ReplaySubject that will throw away old items once the
   
 ### Rx Binding ##  
 
+
+## Back Pressure in RxJava##  
+If an observer can handle only 1000 items per second,  but its Observable emits 100000 items per second, what will happen ?
+
+It’s not rare to get into a situation in which an Observable is emitting items more rapidly than a subscriber can consume them.
+
+I have seen this kind of usage in lots of android projects, most of the developers doing this without knowing something is wrong, querying a database and assuming there won’t be lots of data, or calling to a REST API assuming there won’t be lots of data, then it will end up with a poor app performance in production. App will behave slowly or app will freeze time to time. There is a chance to get an Out Of Memory Exception, if this happen app will crash.
+
+When the Observer is not able to consume items as quickly as they are produced by an Observable they need to be buffered or handled in some other way, before they fill up the memory, finally causing OutOfMemoryException.
+RxJava provides facility to handle backpressure productively. By handling backpressure properly of a data stream, it’ll be possible to manage emitted items as needed, unnecessary items can be discarded or even let the producer know when to create and emit new items.  
+  
+What is the problem here?.
+
+Assume this getStudents() method receives students data from a web API.  
+
+The problem of the code here is, or the problem can arise later with this code is,  it’s getting all the items from the API and pushes it to downstream, which will results in high memory usage if there are millions of items , because it buffers all the data into memory.  
+  
+ We  should  get all of the data provided by the API.  
+  
+But we do not need all of them at once.
+  
+###Introduced Flowable class for handling the backpressure.###  
+  
+In the previous version of RxJava we only had Observable classs.  Observable was only one base class for dealing with backpressure-aware and non-backpressure-aware sources  
+  
+RxJava 2 introduced a new Observable class called Flllowable , specially prepared to work  with backpressure aware data  sources .    
+  
+When introducing Flowable , RxJava 2 has provided us different convenient methods to create flowables.  
+  
+During a earlier chapter of this course we learnt that we can easily create observables from any object or values using just operator.  
+  
+We can easily create a Flowable from any object or value using just operator . Like we did with for the Observable.  
+  
+Let me show this with a code example.  
+    
+This is the simplest way. But, widely used approach to create a flowable  is toFlowable() method.  
+  
+We can invoke any observables ‘s toFlowable method passing BackpressureStrategy as an argument.  
+  
+Here is a  code example.   
+  
+**Backpressure strategies**    
+  
+**BackpressureStrategy.DROP**
+
+We use this to discard the events that cannot be consumed by the Observer.   
+
+**BackpressureStrategy.BUFFER**
+
+If we use this, the source will buffer all the events until the subscriber can consume them. I recommend this strategy for most of the use cases, because there will be no data loss with this strategy.
+
+**BackpressureStrategy.LATEST**
+
+BackpressureStrategy.LATEST, force  to the source to keep only the latest items, to do that source may need to  overwrite some previous values .
+
+**BackpressureStrategy.MISSING**
+
+We may temporary  pass this value, if we don’t want any backpressure stratergy.
+
+**BackpressureStrategy.ERROR**
+
+If we don’t expect backpressure at all, we can pass BackpressureStrategy.ERROR
+
+
+
+In both of the cases( BackpressureStrategy.MISSING,  BackpressureStrategy.ERROR  ), a MissingBackpressureException will be thrown if the observer can’t keep up with the data emitting speed of the source.  
+  
   
 ## RxJava Interview Questions Part 1 ##    
 1. What is RxJava?  
