@@ -615,6 +615,9 @@ There are also versions of ReplaySubject that will throw away old items once the
 **SUBJECT IMAGE**  
 ![alt tag](https://github.com/spdobest/Sp-RxJava/blob/master/images/subject.png) 
   
+### Rx Binding ##  
+
+  
 ## RxJava Interview Questions Part 1 ##    
 1. What is RxJava?  
     RxJava is the JVM implementation of Reactive Extensions.
