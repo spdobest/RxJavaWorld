@@ -72,6 +72,24 @@ Instances of Observable class.
 Observables observe data streams and emit them to subscribed Observers.   
 Rx Java provides 5 base classes to create observable classes.
 
+    
+  
+#### What is the need of Reactive Programming ?  
+Ans : Reactive Programming is nothing but the Asyncronous Programming. Independent of other task.
+
+Observeable.from(doNetworkOperation()).
+SuscribeOn(Scheduler.io).
+
+
+**RX = OBSERVABLE + OBSERVER + SCHEDULERS**  
+  
+**So at a very high level, RxJava is all about:**    
+  
+Creating an Observable.  
+Giving that Observable some data to emit.  
+Creating an Observer.  
+Assigning the Observer to an Observable.  
+Giving the Observer tasks to perform whenever it receives an emission from its assigned Observable.  
   
 ### Observer ###   
 Start listening. Observervables will terminate either by emitting Data Successfully or terminate by showing an Error. Observervables never terminate operation without doing Anything. If we click one Button, it will show Output data successfully or it will show Error.  
@@ -301,24 +319,6 @@ We can also call to clear method to get the same work done.
 When you are using CompositeDisposable, If you call to dispose() method, you will no longer be able to add disposables to that composite disposable.  
   
 But if you call to clear() method you can still add disposable to the composite disposable . Clear() method just clears the disposables that are currently held within the instance.    
-  
-  
-#### What is the need of Reactive Programming ?  
-Ans : Reactive Programming is nothing but the Asyncronous Programming. Independent of other task.
-
-Observeable.from(doNetworkOperation()).
-SuscribeOn(Scheduler.io).
-
-
-**RX = OBSERVABLE + OBSERVER + SCHEDULERS**  
-  
-**So at a very high level, RxJava is all about:**    
-  
-Creating an Observable.  
-Giving that Observable some data to emit.  
-Creating an Observer.  
-Assigning the Observer to an Observable.  
-Giving the Observer tasks to perform whenever it receives an emission from its assigned Observable.  
   
 ### Types of Observables ##  
   
@@ -599,8 +599,23 @@ There are several schedulers available in RxJava, including:
 **Scheduler.immediate()**—for testing and debugging purposes where you can perform the operation on the current thread itself and not on a separate thread.  
 **AndroidSchedulers.mainThread()**—for operations to be performed on Android’s main thread, such as showing data on the UI. You need to use the RxAndroid library for it, though.  
   
-## RxJava Interview Questions Part 1 ##  
+ ## Subjects ##  
+ A Subject is a sort of bridge or proxy that is available in some implementations of ReactiveX that acts both as an observer and as an Observable. Because it is an observer, it can subscribe to one or more Observables, and because it is an Observable, it can pass through the items it observes by reemitting them, and it can also emit new items.  
   
+Because a Subject subscribes to an Observable, it will trigger that Observable to begin emitting items (if that Observable is “cold” — that is, if it waits for a subscription before it begins to emit items). This can have the effect of making the resulting Subject a “hot” Observable variant of the original “cold” Observable.  
+  
+**THere are 4 verities of Subjects**  
+**1.AsyncSubject**  An AsyncSubject emits the last value (and only the last value) emitted by the source Observable, and only after that source Observable completes. (If the source Observable does not emit any values, the AsyncSubject also completes without emitting any values.)  
+**2.BehaviorSubject**  When an observer subscribes to a BehaviorSubject, it begins by emitting the item most recently emitted by the source Observable (or a seed/default value if none has yet been emitted) and then continues to emit any other items emitted later by the source Observable(s).  
+**3.PublishSubject**  PublishSubject emits to an observer only those items that are emitted by the source Observable(s) subsequent to the time of the subscription.  
+**4.ReplaySubject** ReplaySubject emits to any observer all of the items that were emitted by the source Observable(s), regardless of when the observer subscribes.
+  
+There are also versions of ReplaySubject that will throw away old items once the replay buffer threatens to grow beyond a certain size, or when a specified timespan has passed since the items were originally emitted.  
+  
+**SUBJECT IMAGE**  
+![alt tag](https://github.com/spdobest/Sp-RxJava/blob/master/images/subject.png) 
+  
+## RxJava Interview Questions Part 1 ##    
 1. What is RxJava?  
     RxJava is the JVM implementation of Reactive Extensions.
   
