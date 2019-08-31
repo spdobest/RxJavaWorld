@@ -7,6 +7,12 @@ import kotlinx.android.synthetic.main.activity_main.*
 import sptech.rxjavabysp.fragments.FilterFragment
 import sptech.rxjavabysp.fragments.MapFragment
 
+
+/**
+ * https://proandroiddev.com/exploring-rxjava-in-android-e52ed7ef32e2
+ *
+ * https://www.androidhive.info/RxJava/android-getting-started-with-reactive-programming/
+ */
 class MainActivity : AppCompatActivity(), View.OnClickListener {
 
 
@@ -28,7 +34,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         container.visibility = View.VISIBLE
 
         when (view!!.id) {
-
 
 
             R.id.buttonAll -> {
