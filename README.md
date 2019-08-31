@@ -1,6 +1,10 @@
 # Sp-RxJava
   
-  https://github.com/ReactiveX/RxJava/wiki/Alphabetical-List-of-Observable-Operators
+https://github.com/ReactiveX/RxJava/wiki/Alphabetical-List-of-Observable-Operators     
+   
+https://proandroiddev.com/exploring-rxjava-in-android-e52ed7ef32e2
+  
+https://www.androidhive.info/RxJava/android-getting-started-with-reactive-programming/    
   
   
  ### DATA STREAMS EVERYWHERE  
