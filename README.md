@@ -4,7 +4,9 @@ https://github.com/ReactiveX/RxJava/wiki/Alphabetical-List-of-Observable-Operato
    
 https://proandroiddev.com/exploring-rxjava-in-android-e52ed7ef32e2
   
-https://www.androidhive.info/RxJava/android-getting-started-with-reactive-programming/    
+https://www.androidhive.info/RxJava/android-getting-started-with-reactive-programming/   
+  
+https://www.androidhive.info/RxJava/tutorials/  
   
   
  ### DATA STREAMS EVERYWHERE  
