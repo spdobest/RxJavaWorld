@@ -11,4 +11,9 @@
     <string name="btn_dialog_ok">Save </string>
     <string name="title_activity_material_add_goal">MaterialAddGoalActivity</string>
     <string name="hint_search">Search </string>
+
+    <string name="cryptocompare">https://www.cryptocompare.com/</string>
+    <string name="cryptocompare_baseurl">https://min-api.cryptocompare.com/data/all/coinlist</string>
+    <string name="crypto_api_key">bef63b2f61db83bb3603755f04e5622bf4f37aac402d9246f4b12a181bb8b6dc</string>
+    <string name="hello_blank_fragment">Hello</string>
 </resources>
