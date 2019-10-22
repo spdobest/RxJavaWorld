@@ -19,6 +19,10 @@ https://www.androidhive.info/RxJava/tutorials/
 #### What is Reactive Programming ?  
 Ans : In Reactive Programming, user Reacts to the data or the output comes in. This is nothing but the Async Programming or reactive Programming.  
   
+Reactive Programming is a programming paradigm oriented around data flows and the propagation of change i.e. it is all about responding to value changes. For example, let’s say we define x = y+z. When we change the value of y or z, the value of x automatically changes. This can be done by observing the values of y and z.  
+  
+Reactive Extensions is a library that follows Reactive Programming principles to compose asynchronous and event-based programs by using observable sequence.  
+    
 In reactive programming the consumer code blocks reacts to the data as it comes in.  
   
 RxJava is used for reactive programming. In reactive programming, the consumer reacts to the data as it comes in. Reactive programming allows for event changes to propagate to registered observers.  
@@ -105,6 +109,11 @@ Observers consume data emitted by the Observables.
 One Observable can have many observers. An observable emit data, if there is at least one observer subscribed for the data. If there is no subscription observable will not emit data.  
 Main observer methods(there are other methods too)  
   
+### Operator ###  
+  
+Now that we have implemented a basic Observable with an Observer, we can take a look at the different operators in RxJava. Operators allow you to manipulate the data that was emitted or create new Observables.  
+**Operators for creating Observables**  
+    
 **onNext()** :- Each time an Observable emits data it  calls to Observer's  onNext() method  passing that data.  
   
 **onError()** :- If any error occur Observable calls to Observer's onError() method.  
@@ -146,20 +155,30 @@ To perform operations of Observable on different threads(multi-threading) .Betwe
 **Scheduler.io()** 
 Can have limitless threadpool.   
 can have non CPU intesive task  
-For Task related to database operation, network communication and file system interaction.   
+For Task related to database operation, network communication and file system interaction.  
+This is used to perform non CPU-intensive operations like making network calls, reading disc / files, database operations etc., This maintains pool of threads.  
+   
   
 **Scheduler.newThread()**   
-This scheduler creates a new thread for each unit of work scheduled.  
-  
+This scheduler creates a new thread for each unit of work scheduled.Using this, a new thread will be created each time a task is scheduled. It’s usually suggested not to use schedular unless there is a very long running operation. The threads created via newThread() won’t be reused.    
+   
+**AndroidSchedulers.mainThread()** – This provides access to android Main Thread / UI Thread. Usually operations like updating UI, user interactions happens on this thread. We shouldn’t perform any intensive operations on this thread as it makes the app glitchy or ANR dialog can be thrown.  
+    
 **Scheduler.single()**   
 This scheduler has a single thread execution tasks one after another following the given order.  
   
+**Schedulers.immediate()**  
+This scheduler will execute all the tasks in sequential order they are added. This can be used when there is necessity of sequential execution is required.This scheduler executes the the task immediately in synchronous way by blocking the main thread.  
+
+**Schedulers.computation()** – This schedular can be used to perform CPU-intensive operations like processing huge data, bitmap processing etc., The number of threads created using this scheduler completely depends on number CPU cores available.  
+  
 **Scheduler.trampoline()**     
-THis scheduler executes tasks following first in first out basics.  
+It executes the tasks in First In – First Out manner. All the scheduled tasks will be executed one by one by limiting the number of background threads to one.This scheduler executes tasks following first in first out basics.  
   
 **Scheduler.from(Executor executor)**  
-This creates and returns costume scheduler backed by a specific executor.  
+This allows us to create a scheduler from an executor by limiting number of threads to be created. When thread pool is occupied, tasks will be queued.This creates and returns costume scheduler backed by a specific executor.  
 
+Even through there are lot of Schedulers available, Schedulers.io() and AndroidSchedulers.mainThread() are extensively used in android programming. Below are the list of schedulers available and their brief introduction.
   
 ## Operators ##  
 To modify data  
