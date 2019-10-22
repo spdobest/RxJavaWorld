@@ -11,7 +11,6 @@ import io.reactivex.functions.Consumer
 import kotlinx.android.synthetic.main.activity_rx_view_example.*
 import java.util.concurrent.TimeUnit
 
-
 class RxViewExampleActivity : AppCompatActivity() {
 
     private val compositeDisposableOnPause = CompositeDisposable()
@@ -24,24 +23,24 @@ class RxViewExampleActivity : AppCompatActivity() {
                 .subscribe(Consumer {
                     Log.i("TAG", it.toString())
                 })
+
     }
 
     override fun onResume() {
         super.onResume()
+
         compositeDisposableOnPause.add(button.clicks()
                 .throttleFirst(10, TimeUnit.SECONDS)
                 .subscribe {
-                    Toast.makeText(this@RxViewExampleActivity, "BOO", Toast.LENGTH_LONG).show()
-                }
-        )
+                    Toast.makeText(this@RxViewExampleActivity, "    ", Toast.LENGTH_LONG).show()
+                })
 
         compositeDisposableOnPause.add(buttonFourClick.clicks()
                 .count()
                 .filter { count -> count >= 4 }
                 .subscribe {
-
+                    Toast.makeText(this@RxViewExampleActivity, "    ", Toast.LENGTH_LONG).show()
                 })
-
     }
 
     override fun onPause() {
@@ -52,5 +51,4 @@ class RxViewExampleActivity : AppCompatActivity() {
     companion object {
         val TAG = RxViewExampleActivity::class.java.simpleName
     }
-
 }
