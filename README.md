@@ -1,4 +1,4 @@
-# Sp-RxJava
+# RxJava Fundamentals and Concept
   
 https://github.com/ReactiveX/RxJava/wiki/Alphabetical-List-of-Observable-Operators     
    
