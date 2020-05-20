@@ -1,11 +1,9 @@
 package sptech.rxjavabysp
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
-import sptech.rxjavabysp.fragments.FilterFragment
-import sptech.rxjavabysp.fragments.MapFragment
 
 
 /**
@@ -47,17 +45,17 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             }
 
             R.id.buttonMap -> {
-                supportFragmentManager.beginTransaction()
-                        .add(R.id.constraintLayoutContainer,
-                                MapFragment.newInstance("", ""),
-                                "FilterFragment").commit()
+//                supportFragmentManager.beginTransaction()
+//                        .add(R.id.constraintLayoutContainer,
+//                                MapFragment.newInstance("", ""),
+//                                "FilterFragment").commit()
             }
 
             R.id.buttonFilter -> {
-                supportFragmentManager.beginTransaction()
-                        .add(R.id.constraintLayoutContainer,
-                                FilterFragment.newInstance("", ""),
-                                "FilterFragment").commit()
+//                supportFragmentManager.beginTransaction()
+//                        .add(R.id.constraintLayoutContainer,
+//                                FilterFragment.newInstance("", ""),
+//                                "FilterFragment").commit()
             }
 
 
