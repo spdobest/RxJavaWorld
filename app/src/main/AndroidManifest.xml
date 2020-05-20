@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="sptech.rxjavabysp">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,7 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".rxView.RxViewExampleActivity">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
                 <action android:name="android.intent.action.MAIN" />
@@ -17,30 +20,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".retrofitWithRx.RetrofitWithRxActivity">
 
-        </activity>
-        <activity android:name=".rxJava2Examples.rxBinding.RxBindingActivity" />
-        <activity android:name=".rxJava2Examples.DisposableObserverActivity" />
-        <activity android:name=".rxJava2Examples.DisposableActivity" />
-        <activity android:name=".rxJava2Examples.SimpleObserverActivity" />
-        <activity android:name=".MainActivity"></activity> <!-- OPERATORS -->
-        <activity android:name=".rxJava2Examples.operators.FromOperatorActivity" />
-        <activity android:name=".rxJava2Examples.operators.JustOperatorActivity" />
-        <activity android:name=".rxJava2Examples.operators.BufferActivity" />
-        <activity android:name=".rxJava2Examples.operators.ConcatActivity" />
-        <activity android:name=".rxJava2Examples.operators.EmptyActivity" />
-        <activity android:name=".rxJava2Examples.operators.FIlterActivity" />
-        <activity android:name=".rxJava2Examples.operators.FlatmapActivity" />
-        <activity android:name=".rxJava2Examples.operators.IntervalActivity" />
-        <activity android:name=".rxJava2Examples.operators.MapActivity" />
-        <activity android:name=".rxJava2Examples.operators.RangeActivity" />
-        <activity android:name=".rxJava2Examples.operators.SkipActivity" />
-        <activity android:name=".rxJava2Examples.operators.SkipLastActivity" />
     </application>
-
-    <uses-permission android:name="android.permission.INTERNET" />
-
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
 </manifest>
