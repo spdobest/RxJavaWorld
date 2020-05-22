@@ -1,14 +1,11 @@
 # RxJava Fundamentals and Concept
-  
-https://github.com/ReactiveX/RxJava/wiki/Alphabetical-List-of-Observable-Operators     
+
+## Important Links
+- https://github.com/ReactiveX/RxJava/wiki/Alphabetical-List-of-Observable-Operators      
+- https://proandroiddev.com/exploring-rxjava-in-android-e52ed7ef32e2
+- https://www.androidhive.info/RxJava/android-getting-started-with-reactive-programming/   
+- https://www.androidhive.info/RxJava/tutorials/  
    
-https://proandroiddev.com/exploring-rxjava-in-android-e52ed7ef32e2
-  
-https://www.androidhive.info/RxJava/android-getting-started-with-reactive-programming/   
-  
-https://www.androidhive.info/RxJava/tutorials/  
-  
-  
  ### DATA STREAMS EVERYWHERE  
 • If you consider a mobile application, you can create a data stream out of anything  
 • Click events, network calls, data storage, variable changes and even errors can be used to generate data streams  
@@ -17,56 +14,36 @@ https://www.androidhive.info/RxJava/tutorials/
 
 
 #### What is Reactive Programming ?  
-Ans : In Reactive Programming, user Reacts to the data or the output comes in. This is nothing but the Async Programming or reactive Programming.  
+- In Reactive Programming, user Reacts to the data or the output comes in. This is nothing but the Async Programming or reactive Programming.
+- Reactive Programming is a programming paradigm oriented around data flows and the propagation of change i.e. it is all about responding to value changes. For example, let’s say we define x = y+z. When we change the value of y or z, the value of x automatically changes. This can be done by observing the values of y and z.  
+- Reactive Extensions is a library that follows Reactive Programming principles to compose asynchronous and event-based programs by using observable sequence.  
+- In reactive programming the consumer code blocks reacts to the data as it comes in.  
+- RxJava is used for reactive programming. In reactive programming, the consumer reacts to the data as it comes in. Reactive programming allows for event changes to propagate to registered observers.  
   
-Reactive Programming is a programming paradigm oriented around data flows and the propagation of change i.e. it is all about responding to value changes. For example, let’s say we define x = y+z. When we change the value of y or z, the value of x automatically changes. This can be done by observing the values of y and z.  
-  
-Reactive Extensions is a library that follows Reactive Programming principles to compose asynchronous and event-based programs by using observable sequence.  
-    
-In reactive programming the consumer code blocks reacts to the data as it comes in.  
-  
-RxJava is used for reactive programming. In reactive programming, the consumer reacts to the data as it comes in. Reactive programming allows for event changes to propagate to registered observers.  
-
 **ReactiveX** is a technology or project which integrate Reactive Programm using the combination of Observer Pattern,Functional and Iterator Pattern.  
 **RxJava** is the Java implementation of Reactive Programming. It's nothing but user will react on the data we get as output.  
   
-ReactiveX is a short word for reactive extensions.  
+**ReactiveX is a short word for reactive extensions.**  
 • ReactiveX is a project which provides implementations for this reactive programming concept for different programming languages.  
-• ReactiveX is a combination of the best ideas from the Observer pattern, the Iterator pattern, and functional programming.    
-    
-     
-*** What is the difference between RxJava and RxAndroid?***       
-•RxAndroid does not replace rxjava.  
-•RxAndroid is just a layer on top of RxJava which provides android specific support.           
+• ReactiveX is a combination of the best ideas from the Observer pattern, the Iterator pattern, and functional programming.        
+## What is the difference between RxJava and RxAndroid?        
+- RxAndroid does not replace rxjava.  
+- RxAndroid is just a layer on top of RxJava which provides android specific support.           
   
-  
-### Why and When should we use RxJava?  What are the benefits? ###  
-  
- Interfaces and methods provided by Reactive Extensions (Rx) provide a way to developers solve problems rapidly. We can save a lot of time we usually spend for writing complex algorithms and bug fixing.  
-  
-As it provides a common structure we can write easy to understand and easy to maintain code. RxJava support us to write clean and simpler code.  
-  
-RxJava allow a different approach of programming than imperative(way we usually code in Android) approach. It is reactive based, where codes are not activate until it knows it’s end mean.  
-  
-RxJava makes multi-threading super easy. Using imperative approach, moving a piece of code to background thread is hard work. However in RxJava, we could easily define what thread each part of the chain would be in.  
-  
-It provide extensibility to our code. RxJava code can be extended with custom operators.  
-  
-RxJava is composable, Rx operators can be combined to produce more complicated operations.  
-  
-Rx operators can transform one type of data to another, reducing, mapping or expanding streams as needed.  
-  
-UI events like mouse move , button click, domain events like property changed, collection updated can be easily use to generate and handle data streams with RxJava.  
-  
-Error handling becomes much easier with RxJava. You don’t need to worry about adding try catch blocks everywhere.  
-  
-In mobile applications, we cannot control the app lifecycle. Sometimes we need to terminate current processes rapidly to response to a app lifecycle change. RxJava provide simple yet profound mechanism to terminate background processes rapidly.  
-  
-Particularly, callBack occurs when performing several asynchronous operations in a series where the next action depends on the results of the previous operation, making the code untidy and hard to manage. RxJava renders a better way to terminate the urgency to build layers of callbacks.  
-  
-The RxJava library was designed to give a control over a wide range of data, simultaneously on the events in the real-time. This allows us to build highly responsive mobile applications.  
-  
-Some people say Ios apps has better performance than Android apps. That's not true if we use RxJava. we can provide same or even better performance to native Android applications with RxJava.  
+## Why and When should we use RxJava ?  What are the benefits?
+- Interfaces and methods provided by Reactive Extensions (Rx) provide a way to developers solve problems rapidly. We can save a lot of time we usually spend for writing complex algorithms and bug fixing.  
+- As it provides a common structure we can write easy to understand and easy to maintain code. RxJava support us to write clean and simpler code.  
+- RxJava allow a different approach of programming than imperative(way we usually code in Android) approach. It is reactive based, where codes are not activate until it knows it’s end mean.  
+- RxJava makes multi-threading super easy. Using imperative approach, moving a piece of code to background thread is hard work. However in RxJava, we could easily define what thread each part of the chain would be in.  
+- It provide extensibility to our code. RxJava code can be extended with custom operators. 
+- **RxJava** is composable, Rx operators can be combined to produce more complicated operations.  
+- **Rx operators** can transform one type of data to another, reducing, mapping or expanding streams as needed.  
+- UI events like mouse move , button click, domain events like property changed, collection updated can be easily use to generate and handle data streams with RxJava.  
+- Error handling becomes much easier with RxJava. You don’t need to worry about adding try catch blocks everywhere.  
+- In mobile applications, we cannot control the app lifecycle. Sometimes we need to terminate current processes rapidly to response to a app lifecycle change. RxJava provide simple yet profound mechanism to terminate background processes rapidly.  
+- Particularly, callBack occurs when performing several asynchronous operations in a series where the next action depends on the results of the previous operation, making the code untidy and hard to manage. RxJava renders a better way to terminate the urgency to build layers of callbacks.  
+- The RxJava library was designed to give a control over a wide range of data, simultaneously on the events in the real-time. This allows us to build highly responsive mobile applications.  
+- Some people say Ios apps has better performance than Android apps. That's not true if we use RxJava. we can provide same or even better performance to native Android applications with RxJava.  
   
 **KEY POINTS**  
 * Reactive programming is a specification for dealing with asynchronous streams of data  
@@ -76,42 +53,46 @@ Some people say Ios apps has better performance than Android apps. That's not tr
 * Attach to hot streams to attenuate and process asynchronous data feeds  
     
 #### Main Building Blogs Reactive Programming  
+- **Observables** : This is nothing but the data Emitors.   
+    - Instances of Observable class.  
+    - Observables observe data streams and emit them to subscribed Observers.   
+    - Rx Java provides 5 base classes to create observable classes.
   
-* **Observables** : This is nothing but the data Emitors   
-Instances of Observable class.  
-Observables observe data streams and emit them to subscribed Observers.   
-Rx Java provides 5 base classes to create observable classes.
-
-    
+## What is the need of Reactive Programming ?  
+- Reactive Programming is nothing but the Asyncronous Programming. Independent of other task.
+- ```
+      Observeable.from(doNetworkOperation()).
+      SuscribeOn(Scheduler.io).
+  ```
   
-#### What is the need of Reactive Programming ?  
-Ans : Reactive Programming is nothing but the Asyncronous Programming. Independent of other task.
-
-Observeable.from(doNetworkOperation()).
-SuscribeOn(Scheduler.io).
-
-
 **RX = OBSERVABLE + OBSERVER + SCHEDULERS**  
   
-**So at a very high level, RxJava is all about:**    
+## So at a very high level, RxJava is all about   
+- Creating an Observable.  
+- Giving that Observable some data to emit.  
+- Creating an Observer.  
+- Assigning the Observer to an Observable.  
+- Giving the Observer tasks to perform whenever it receives an emission from its assigned Observable.  
   
-Creating an Observable.  
-Giving that Observable some data to emit.  
-Creating an Observer.  
-Assigning the Observer to an Observable.  
-Giving the Observer tasks to perform whenever it receives an emission from its assigned Observable.  
-  
-### Observer ###   
-Start listening. Observervables will terminate either by emitting Data Successfully or terminate by showing an Error. Observervables never terminate operation without doing Anything. If we click one Button, it will show Output data successfully or it will show Error.  
+## Observer 
+- It is the listener of the data change in **Observable**.
+- Start listening. 
+- Observervables will terminate either by emitting Data Successfully or terminate by showing an Error. 
+- Observervables never terminate operation without doing Anything. 
+- If we click one Button, it will show Output data successfully or it will show Error.  
     
-Instances of observer interface .  
-Observers consume data emitted by the Observables.     
-One Observable can have many observers. An observable emit data, if there is at least one observer subscribed for the data. If there is no subscription observable will not emit data.  
-Main observer methods(there are other methods too)  
+**Instances of observer interface**  
+- Observers consume data emitted by the Observables.     
+- One Observable can have many observers. An observable emit data, if there is at least one observer subscribed for the data. - If there is no subscription observable will not emit data.  
+- Main observer methods(there are other methods too)  
   
-### Operator ###  
-  
-Now that we have implemented a basic Observable with an Observer, we can take a look at the different operators in RxJava. Operators allow you to manipulate the data that was emitted or create new Observables.  
+## Operator 
+- RxJava Operators allows you manipulate the data emitted by Observables. 
+- Basically, operators tells Observable, how to modify the data and when to emit the data. 
+- Using the operators you can modify, merge, filter or group the data streams. ... 
+- You can achieve any complex data stream by combining multiple operators together.
+- Now that we have implemented a basic Observable with an Observer, we can take a look at the different operators in RxJava. - - Operators allow you to manipulate the data that was emitted or create new Observables.
+
 **Operators for creating Observables**  
     
 **onNext()** :- Each time an Observable emits data it  calls to Observer's  onNext() method  passing that data.  
@@ -124,7 +105,7 @@ Now that we have implemented a basic Observable with an Observer, we can take a 
   
 Observable emit data if at lest one observer is suscribed for data, if no Observer is suscribed , then Observale will not emit data.  
   
-## Disposable ##  
+## Disposable 
 How memory leaks happen, most of the time ?  
 In mobile applications we cannot control the app life-cycle. Let’s say in an app you created you have written code to run a network call to a REST API and update the view accordingly. If a user initiate a view but decide to go back before the completion of the network call, What will happen? The activity or fragment will be destroyed. But the observer subscription will be there. When observer trying to update the User Interface, in this scenario as the view already destroyed,  it can cause a memory leak. And your app will freeze or crash as a result.  
 This is what we can simply do (If only one observer there)  
@@ -149,69 +130,81 @@ In the onDestroy() method activity , u can write, disposableObserver.dispose().
 
 
    
-## Schedulers ##  
-To perform operations of Observable on different threads(multi-threading) .Between Observer and observable there is scheduler. It is used to handle multithreading. It decides whether the code will run in background thread or main thread. THere are mainly 2 Schedulers used in Rx Java, 1. Schedulers.io and ANdroidSchedulers.mainThread()  
+## Schedulers
+- To perform operations of Observable on different threads(multi-threading).
+- Between Observer and observable there is scheduler. 
+- It is used to handle multithreading. 
+- It decides whether the code will run in background thread or main thread. 
+- There are mainly 2 Schedulers used in Rx Java, 
+  - 1. Schedulers.io  
+  - 2. AbdroidSchedulers.mainThread()  
   
-**Scheduler.io()** 
-Can have limitless threadpool.   
-can have non CPU intesive task  
-For Task related to database operation, network communication and file system interaction.  
-This is used to perform non CPU-intensive operations like making network calls, reading disc / files, database operations etc., This maintains pool of threads.  
+## Scheduler.io() 
+- Can have limitless threadpool.   
+- can have non CPU intesive task  
+- For Task related to database operation, network communication and file system interaction.  
+- This is used to perform non CPU-intensive operations like making network calls, reading disc / files, database operations etc., This maintains pool of threads.  
    
-  
-**Scheduler.newThread()**   
-This scheduler creates a new thread for each unit of work scheduled.Using this, a new thread will be created each time a task is scheduled. It’s usually suggested not to use schedular unless there is a very long running operation. The threads created via newThread() won’t be reused.    
+## Scheduler.newThread()    
+- This scheduler creates a new thread for each unit of work scheduled.
+- Using this, a new thread will be created each time a task is scheduled. 
+- It’s usually suggested not to use schedular unless there is a very long running operation. 
+- The threads created via newThread() won’t be reused.    
    
-**AndroidSchedulers.mainThread()** – This provides access to android Main Thread / UI Thread. Usually operations like updating UI, user interactions happens on this thread. We shouldn’t perform any intensive operations on this thread as it makes the app glitchy or ANR dialog can be thrown.  
+## AndroidSchedulers.mainThread()
+– This provides access to android Main Thread / UI Thread. 
+- Usually operations like updating UI, user interactions happens on this thread. 
+- We shouldn’t perform any intensive operations on this thread as it makes the app glitchy or ANR dialog can be thrown.  
     
-**Scheduler.single()**   
+## Scheduler.single() 
 This scheduler has a single thread execution tasks one after another following the given order.  
   
-**Schedulers.immediate()**  
-This scheduler will execute all the tasks in sequential order they are added. This can be used when there is necessity of sequential execution is required.This scheduler executes the the task immediately in synchronous way by blocking the main thread.  
+## Schedulers.immediate() 
+- This scheduler will execute all the tasks in sequential order they are added. 
+- This can be used when there is necessity of sequential execution is required.
+- This scheduler executes the the task immediately in synchronous way by blocking the main thread.  
 
-**Schedulers.computation()** – This schedular can be used to perform CPU-intensive operations like processing huge data, bitmap processing etc., The number of threads created using this scheduler completely depends on number CPU cores available.  
+## Schedulers.computation()
+– This schedular can be used to perform CPU-intensive operations like processing huge data, bitmap processing etc., 
+- The number of threads created using this scheduler completely depends on number CPU cores available.  
   
-**Scheduler.trampoline()**     
-It executes the tasks in First In – First Out manner. All the scheduled tasks will be executed one by one by limiting the number of background threads to one.This scheduler executes tasks following first in first out basics.  
+## Scheduler.trampoline()      
+- It executes the tasks in First In – First Out manner. 
+- All the scheduled tasks will be executed one by one by limiting the number of background threads to one.
+- This scheduler executes tasks following first in first out basics.  
   
-**Scheduler.from(Executor executor)**  
-This allows us to create a scheduler from an executor by limiting number of threads to be created. When thread pool is occupied, tasks will be queued.This creates and returns costume scheduler backed by a specific executor.  
+## Scheduler.from(Executor executor)**  
+- This allows us to create a scheduler from an executor by limiting number of threads to be created. 
+- When thread pool is occupied, tasks will be queued.
+- This creates and returns costume scheduler backed by a specific executor.  
 
-Even through there are lot of Schedulers available, Schedulers.io() and AndroidSchedulers.mainThread() are extensively used in android programming. Below are the list of schedulers available and their brief introduction.
+**NOTE : **Even through there are lot of Schedulers available, **Schedulers.io()** and **AndroidSchedulers.mainThread()** are extensively used in android programming. Below are the list of schedulers available and their brief introduction.
+   
+## Operators 
+- To modify data  
+- Its is used to convert the data streams before it recieved by the observers. They allow to change by different operators. **There are around 70 operators**    
   
-## Operators ##  
-To modify data  
-its is used to convert the data streams before it recieved by the observers. They allow to change by different operators. There are around 70 operators.  
+- **Observable — Operator — Observer**
+- An Observable is like speaker which emit value. It does some work and emits some values.
+- An Operator is like translator which translate/modify a data from one form to another form.
+- An Observer gets those values.
 
-Observable — Operator — Observer
-An Observable is like speaker which emit value. It does some work and emits some values.
-
-An Operator is like translator which translate/modify a data from one form to another form.
-
-An Observer gets those values.
-
-**1. Observable - **
-**2. Flowable -**  
-Flowable comes to picture when there is a case that the Observable is emitting huge numbers of values which can’t be consumed by the Observer.  
-In this case, the Observable needs to skip some values on the basis of some strategy else it will throw an exception.    
-The Flowable Observable handles the exception with a strategy.  
+## 1. Observable 
+## 2. Flowable
+- Flowable comes to picture when there is a case that the Observable is emitting huge numbers of values which can’t be consumed by the Observer.  
+- In this case, the Observable needs to skip some values on the basis of some strategy else it will throw an exception.    
+- The Flowable Observable handles the exception with a strategy.
+- The strategy is called BackPressureStrategy and the exception is called MissingBackPressureException.  
+- **Creating a Flowable Observable**   
+    - Similar to normal Observable, you can create Flowable using Flowable.create().  
+    - Observer for Flowable Observable  
+    - The Observer for Flowable is exactly same as normal Observer.  
   
-The strategy is called BackPressureStrategy and the exception is called MissingBackPressureException.  
-  
-Creating a Flowable Observable  
-  
-Similar to normal Observable, you can create Flowable using Flowable.create().  
-  
-Observer for Flowable Observable  
-  
-The Observer for Flowable is exactly same as normal Observer.  
-  
-**3. Single -**  
-Single is used when the Observable has to emit only one value like a response from a network call.  
-  
-How to create Single Observable  
-new SingleObserver<String>() {  
+## 3. Single 
+- Single is used when the Observable has to emit only one value like a response from a network call.  
+- How to create Single Observable  
+- ```
+      new SingleObserver<String>() {  
             @Override  
             public void onSubscribe(Disposable d) {  
                 Log.d(TAG, " onSubscribe : " + d.isDisposed());  
@@ -231,16 +224,14 @@ new SingleObserver<String>() {
                 Log.d(TAG, " onError : " + e.getMessage());  
             }  
         };  
-          
-**4. Maybe -**
-  
-Maybe is used when the Observable has to emit a value or no value.  
-
-**5. Completable -**  
-Completable is used when the Observable has to do some task without emitting a value.  
-  
-How to create COmpletable Observable class   
-new CompletableObserver() {  
+  ```              
+## 4. Maybe 
+- Maybe is used when the Observable has to emit a value or no value.  
+## 5. Completable 
+- Completable is used when the Observable has to do some task without emitting a value.  
+- How to create Completable Observable class   
+- ```
+  new CompletableObserver() {  
             @Override  
             public void onSubscribe(Disposable d) {  
                 Log.d(TAG, " onSubscribe : " + d.isDisposed());   
@@ -259,16 +250,15 @@ new CompletableObserver() {
                 textView.append(AppConstant.LINE_SEPARATOR);  
                 Log.d(TAG, " onError : " + e.getMessage());  
             }  
-        };  
-  
-## following are the different types of Observers in RxJava: ##  
+        }; 
+     ```   
+## following are the different types of Observers in RxJava  
+- Observer
+- SingleObserver
+- MaybeObserver
+- CompletableObserver
 
-1. Observer
-2. SingleObserver
-3. MaybeObserver
-4. CompletableObserver
-
-## SingleObserver Example ##  
+## SingleObserver Example 
 /*  
      * simple example using SingleObserver  
      */  
@@ -307,7 +297,7 @@ public interface Disposable {
   boolean isDisposed();  
 }    
 
-### Composite Disposable ###  
+## Composite Disposable 
 In one class you can have more than one observers . So you will have so many observers to dispose.  
   
 We can dispose them one by one like this.  
