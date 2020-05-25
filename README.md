@@ -5,14 +5,15 @@
 - https://proandroiddev.com/exploring-rxjava-in-android-e52ed7ef32e2
 - https://www.androidhive.info/RxJava/android-getting-started-with-reactive-programming/   
 - https://www.androidhive.info/RxJava/tutorials/  
+
+## What are the changes in RxJava3 as Compared to RxJava2
+- https://github.com/ReactiveX/RxJava/wiki/What's-different-in-3.0    
    
  ### DATA STREAMS EVERYWHERE  
 • If you consider a mobile application, you can create a data stream out of anything  
 • Click events, network calls, data storage, variable changes and even errors can be used to generate data streams  
 • Modules run on their own threads, executing multiple code blocks at the same time.    
-  
-
-
+   
 #### What is Reactive Programming ?  
 - In Reactive Programming, user Reacts to the data or the output comes in. This is nothing but the Async Programming or reactive Programming.
 - Reactive Programming is a programming paradigm oriented around data flows and the propagation of change i.e. it is all about responding to value changes. For example, let’s say we define x = y+z. When we change the value of y or z, the value of x automatically changes. This can be done by observing the values of y and z.  
@@ -20,7 +21,7 @@
 - In reactive programming the consumer code blocks reacts to the data as it comes in.  
 - RxJava is used for reactive programming. In reactive programming, the consumer reacts to the data as it comes in. Reactive programming allows for event changes to propagate to registered observers.  
   
-**ReactiveX** is a technology or project which integrate Reactive Programm using the combination of Observer Pattern,Functional and Iterator Pattern.  
+**ReactiveX** is a technology or project which integrate Reactive Program using the combination of Observer Pattern,Functional and Iterator Pattern.  
 **RxJava** is the Java implementation of Reactive Programming. It's nothing but user will react on the data we get as output.  
   
 **ReactiveX is a short word for reactive extensions.**  
@@ -52,12 +53,42 @@
 * Resembles Java Streams API but the resemblance is purely superficial  
 * Attach to hot streams to attenuate and process asynchronous data feeds  
     
-#### Main Building Blogs Reactive Programming  
-- **Observables** : This is nothing but the data Emitors.   
+## Main Building Blogs Reactive Programming  
+### Observables
+    - This is nothing but the data Emitors.   
     - Instances of Observable class.  
     - Observables observe data streams and emit them to subscribed Observers.   
     - Rx Java provides 5 base classes to create observable classes.
+      
+### Observer or Subscriber
+    - It is the listener of the data change in **Observable**.
+    - One **Observable** can have any number of **Observer Or Subscriber**.
+    - If the observable finishes its data flow successful, the onComplete() method is called on each subscriber. 
+    - Similar, if the observable finishes its data flow with an error, the onError() method is called on each subscriber.
+    - Start listening. 
+    - Observervables will terminate either by emitting Data Successfully or terminate by showing an Error. 
+    - Observervables never terminate operation without doing Anything. 
+    - If we click one Button, it will show Output data successfully or it will show Error.  
   
+### Subject
+    - A Subject is a sort of bridge or proxy that is available in some implementations of ReactiveX that acts both as an observer and as an Observable 
+    - Because it is an observer, it can subscribe to one or more Observables, and because it is an Observable, it can pass through the items it observes by reemitting them, and it can also emit new items.
+    - Because a Subject subscribes to an Observable, it will trigger that Observable to begin emitting items (if that Observable is “cold” — that is, if it waits for a subscription before it begins to emit items). 
+    - This can have the effect of making the resulting Subject a “hot” Observable variant of the original “cold” Observable.
+    - **There are 4 veriety of Subjects.**
+        - **AsyncSubject** - An AsyncSubject emits the last value (and only the last value) emitted by the source Observable, and only after that source Observable completes.
+        - **BehaviorSubject** - When an observer subscribes to a BehaviorSubject, it begins by emitting the item most recently emitted by the source Observable (or a seed/default value if none has yet been emitted) and then continues to emit any other items emitted later by the source Observable(s).
+        - **PublishSubject** -  emits to an observer only those items that are emitted by the source Observable(s) subsequent to the time of the subscription.
+        - **ReplaySubject** - emits to any observer all of the items that were emitted by the source Observable(s), regardless of when the observer subscribes.
+        
+  
+### Operator 
+- RxJava Operators allows you manipulate the data emitted by Observables. 
+- Basically, operators tells Observable, how to modify the data and when to emit the data. 
+- Using the operators you can modify, merge, filter or group the data streams. ... 
+- You can achieve any complex data stream by combining multiple operators together.
+- Now that we have implemented a basic Observable with an Observer, we can take a look at the different operators in RxJava. - - Operators allow you to manipulate the data that was emitted or create new Observables.
+        
 ## What is the need of Reactive Programming ?  
 - Reactive Programming is nothing but the Asyncronous Programming. Independent of other task.
 - ```
@@ -74,26 +105,12 @@
 - Assigning the Observer to an Observable.  
 - Giving the Observer tasks to perform whenever it receives an emission from its assigned Observable.  
   
-## Observer 
-- It is the listener of the data change in **Observable**.
-- Start listening. 
-- Observervables will terminate either by emitting Data Successfully or terminate by showing an Error. 
-- Observervables never terminate operation without doing Anything. 
-- If we click one Button, it will show Output data successfully or it will show Error.  
-    
-**Instances of observer interface**  
+## Instances of observer interface
 - Observers consume data emitted by the Observables.     
 - One Observable can have many observers. An observable emit data, if there is at least one observer subscribed for the data. - If there is no subscription observable will not emit data.  
 - Main observer methods(there are other methods too)  
-  
-## Operator 
-- RxJava Operators allows you manipulate the data emitted by Observables. 
-- Basically, operators tells Observable, how to modify the data and when to emit the data. 
-- Using the operators you can modify, merge, filter or group the data streams. ... 
-- You can achieve any complex data stream by combining multiple operators together.
-- Now that we have implemented a basic Observable with an Observer, we can take a look at the different operators in RxJava. - - Operators allow you to manipulate the data that was emitted or create new Observables.
 
-**Operators for creating Observables**  
+## Operators for creating Observables  
     
 **onNext()** :- Each time an Observable emits data it  calls to Observer's  onNext() method  passing that data.  
   
@@ -101,35 +118,33 @@
   
 **onComplete()** :- Observable invokes Observer's onComplete() method, when the data emission is over.  
     
-* **Observer (or Suscribers in version 1)** : Instance of Observer Interface, they consume data emited byt the observables.An Observervable have many number of **Observer's**. If any data change in the Observable, it will react in the **onNext, onCOmplete or OnError methods**.if the observable finishes its data flow with an error, the onError() method is called on each Observer.  
+* **Observer (or Subscribers in version 1)** : Instance of Observer Interface, they consume data emitted byt the observables.An Observable have many number of **Observer's**. If any data change in the Observable, it will react in the **onNext, onCOmplete or OnError methods**.if the observable finishes its data flow with an error, the onError() method is called on each Observer.  
   
-Observable emit data if at lest one observer is suscribed for data, if no Observer is suscribed , then Observale will not emit data.  
+Observable emit data if at lest one observer is subscribed for data, if no Observer is subscribed , then Observable will not emit data.  
   
 ## Disposable 
-How memory leaks happen, most of the time ?  
-In mobile applications we cannot control the app life-cycle. Let’s say in an app you created you have written code to run a network call to a REST API and update the view accordingly. If a user initiate a view but decide to go back before the completion of the network call, What will happen? The activity or fragment will be destroyed. But the observer subscription will be there. When observer trying to update the User Interface, in this scenario as the view already destroyed,  it can cause a memory leak. And your app will freeze or crash as a result.  
-This is what we can simply do (If only one observer there)  
+- How memory leaks happen, most of the time ?  
+- In mobile applications we cannot control the app life-cycle. Let’s say in an app you created you have written code to run a network call to a REST API and update the view accordingly. If a user initiate a view but decide to go back before the completion of the network call, What will happen? The activity or fragment will be destroyed. But the observer subscription will be there. When observer trying to update the User Interface, in this scenario as the view already destroyed,  it can cause a memory leak. And your app will freeze or crash as a result.  
+- This is what we can simply do (If only one observer there)  
   
-1. Declare a Disposable.  
-private Disposable disposable;  
+### Steps to Implement Disposable 
+- 1. Declare a Disposable.  
+      ```      
+        private Disposable disposable;  
+        ```
+- 2. Observer's onSubscribe method has a parameter of type Disposable.Observer invokes this method passing a disposable value which we can use to terminate the subscription.  From there we can assign value to the Disposable we declared.  
+- 3. Override the onDestroy method of your activity or fragment. (code->override methods)  
+- 4.This method will always be invoked when the activity or fragment destroyed.(when user move to another view).   
+      - So we can add code to dispose the disposable there.In the onDestroy method just write
+      - ```
+            disposable.dispose();
+        ``` 
+          
+## What are Disposable Observers ?
+- DisposableObserver class implements both Observer and Disposable interfaces. DisposableObserver is much efficient than Observer if you have more than one observers in the activity or fragment.  
+- Observer implementation had four overridden methods. onSubscribe() method was mainly there to receive the disposable.  
+- In the onDestroy() method activity , you can write, disposableObserver.dispose().  
   
-2. Observer's onSubscribe method has a parameter of type Disposable.Observer invokes this method passing a disposable value which we can use to terminate the subscription.  From there we can assign value to the Disposable we declared.  
-  
-3. Override the onDestroy method of your activity or fragment. (code->override methods)  
-  
-This method will always be invoked when the avtivity or fragment destroyed.(when user move to another view).   
-So we can add code to dispose the disposable there.In the onDestroy method jiust write
-disposable.dispose();
- 
-## What are Disposable Observers?  ##  
-DisposableObserver class implements both Observer and Disposable interfaces. DisposableObserver is much efficient than Observer if you have more than one observers in the activity or fragment.  
-  
-Observer implementation had four overridden methods. onSubscribe() method was mainly there to receive the disposable.  
-  
-In the onDestroy() method activity , u can write, disposableObserver.dispose().  
-
-
-   
 ## Schedulers
 - To perform operations of Observable on different threads(multi-threading).
 - Between Observer and observable there is scheduler. 
