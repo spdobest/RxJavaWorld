@@ -1,6 +1,7 @@
 # RxJava 3 
 In this documentation, i will explain the new features, operators and their use in RxJava 3.
-  
+## What are the changes in RxJava3 as Compared to RxJava2
+- https://github.com/ReactiveX/RxJava/wiki/What's-different-in-3.0    
 ## Rx Java 3 Features
 - Rx Java 2.X is in maintenance mode
 - Supports Java 1.8
